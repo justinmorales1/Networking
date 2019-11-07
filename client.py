@@ -69,7 +69,7 @@ from socket import *
 pings = 1
 lostPackets = 0
 #Send ping 10 times
-while pings < 1000:
+while pings < 10000:
 
     #Create a UDP socket
     clientSocket = socket(AF_INET, SOCK_DGRAM)
@@ -80,7 +80,7 @@ while pings < 1000:
     #Ping to server
     message = 'Sending data to server'
     #Non Losseless Server
-    #addr = ("69.61.103.44", 7851)
+    #serveraddress = ("69.61.103.44", 7851)
     #Lossy Server
     serveraddress = ("69.61.103.44", 8591)
 

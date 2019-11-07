@@ -6,7 +6,8 @@ lostPackets = 0
 totalRTTTime = 0
 eachRTTTime = 0
 percentLoss = 0
-#Send ping 10 times
+
+#Send ping 10000 times
 for pingServer in range(10000):
     totalNumberOfPings = totalNumberOfPings + 1
     #Create a UDP socket

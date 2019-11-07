@@ -16,9 +16,9 @@ for pingServer in range(10000):
     #Ping to server
     message = 'This is the message'
     #Losseless Server
-    serveraddress = ("69.61.103.44", 7851)
+    #serveraddress = ("69.61.103.44", 7851)
     #Lossy Server
-    #serveraddress = ("69.61.103.44", 8591)
+    serveraddress = ("69.61.103.44", 8591)
 
     #Start Time
     startTime = time.time()
@@ -30,9 +30,6 @@ for pingServer in range(10000):
         endTime = time.time()
         eachRTTTime = endTime - startTime
         totalRTTTime = totalRTTTime + eachRTTTime
-        print (data)
-        print ("Each rtt time", eachRTTTime)
-        #print("The total time of RTT is ", totalRTTTime)
 
     #If data has not been returned in 2 seconds then log the loss packet.
     except timeout:

@@ -5,8 +5,9 @@ totalNumberOfPings = 0
 lostPackets = 0
 totalRTTTime = 0
 eachRTTTime = 0
+percentLoss = 0
 #Send ping 10 times
-for pings in range(100):
+for pings in range(1000):
     totalNumberOfPings = totalNumberOfPings + 1
     #Create a UDP socket
     clientSocket = socket(AF_INET, SOCK_DGRAM)
@@ -14,7 +15,7 @@ for pings in range(100):
     clientSocket.settimeout(2.0)
     #Ping to server
     message = 'This is the message'
-    #Non Losseless Server
+    #Losseless Server
     #serveraddress = ("69.61.103.44", 7851)
     #Lossy Server
     serveraddress = ("69.61.103.44", 8591)
@@ -38,6 +39,8 @@ for pings in range(100):
         lostPackets = lostPackets + 1
         print ('REQUEST TIMED OUT')
 
+percentLoss = ((lostPackets / totalNumberOfPings) * 100)
+print("The percent loss is ", percentLoss)
 print("The total number of packets sent is ", totalNumberOfPings)
 print("The total time of RTT is ", totalRTTTime)
 print("The packet average RTT is ", totalRTTTime/totalNumberOfPings)
